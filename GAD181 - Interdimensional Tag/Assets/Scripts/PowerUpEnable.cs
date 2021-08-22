@@ -5,7 +5,6 @@ using UnityEngine;
 public class PowerUpEnable : MonoBehaviour
 { 
 
-    public PlayerControls player;
     public enum PowerTypeList
     {
         Empty,
@@ -14,10 +13,14 @@ public class PowerUpEnable : MonoBehaviour
         PlaceTrap,
         GrappleHook
     };
+
     public PowerTypeList PowerType;
+    public PlayerControls player;
     //int PowerTypeNum = (int)PowerType;
 
     public int speedBoost = 3;
+    public int jumpBoost = 5;
+
 
     void OnTriggerEnter(Collider body)
     {
@@ -42,6 +45,7 @@ public class PowerUpEnable : MonoBehaviour
             case PowerTypeList.MoonJump:
                 // do other thing
                 // eg: poweredPlayer.speed += jumpBoost;
+                player.speed += jumpBoost;
                 break;
 
             case PowerTypeList.PlaceTrap:

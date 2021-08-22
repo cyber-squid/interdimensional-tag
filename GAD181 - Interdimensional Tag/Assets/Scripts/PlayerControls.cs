@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    Rigidbody playerBody;
+    public Rigidbody playerBody;
+    public Collider playerColl;
+
+
     public Vector3 moveForce;
     public float speed = 3;
     public float jumpForce = 3;
+
+    public int personalScore;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +20,8 @@ public class PlayerControls : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
         moveForce.x = Input.GetAxis("Horizontal");
         moveForce.z = Input.GetAxis("Vertical");
+
+        //tagHandler = GetComponent<TagStateHandler>();
     }
 
     // Update is called once per frame
@@ -27,4 +34,5 @@ public class PlayerControls : MonoBehaviour
             //playerBody += jumpForce;
         }
     }
+
 }
