@@ -14,7 +14,7 @@ public class PlayerControls : MonoBehaviour
 
     public int personalScore;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         playerBody = GetComponent<Rigidbody>();
@@ -24,7 +24,6 @@ public class PlayerControls : MonoBehaviour
         //tagHandler = GetComponent<TagStateHandler>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         playerBody.velocity += moveForce * speed;
