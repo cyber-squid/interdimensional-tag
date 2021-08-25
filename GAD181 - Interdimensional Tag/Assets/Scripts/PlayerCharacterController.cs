@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
 {
-
     public float h, v;
     public float speed;
-    public float jumpSpeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float jumpStrength;
+    float velocityY = 0;
 
     // Update is called once per frame
     void Update()
     {
+        if(GetComponent<CharacterController>().isGrounded == false)
+        {
+            velocityY -= 9.81f * Time.deltaTime;
+        }
         
+        h = Input.GetAxis("Horizontal");
+        v = Input.GetAxis("Vertical");
+        var movementVector = transform.forward * v * speed;
+        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            velocityY = jumpStrength;
+        }
+
+        movementVector.y = velocityY;
+        movementVector *= Time.deltaTime;
+        GetComponent<CharacterController>().Move(movementVector);
+        transform.Rotate(0, h, 0);
     }
 }
+
+
