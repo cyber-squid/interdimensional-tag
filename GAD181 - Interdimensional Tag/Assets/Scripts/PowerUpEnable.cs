@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpEnable : MonoBehaviour
 { 
-
+    // to be added to each powerup. enum type determines what powerup it is
     public enum PowerTypeList
     {
         Empty,
@@ -15,7 +15,7 @@ public class PowerUpEnable : MonoBehaviour
     };
 
     public PowerTypeList PowerType;
-    public PlayerControls player;
+    public PlayerControls playerController;
     //int PowerTypeNum = (int)PowerType;
 
     public int speedBoost = 3;
@@ -26,7 +26,7 @@ public class PowerUpEnable : MonoBehaviour
     {
         if (body.tag == "Player")
         {
-            player = body.GetComponent<PlayerControls>();
+            playerController = body.GetComponent<PlayerControls>();
             ActivatePower();
         }
     }
@@ -38,22 +38,24 @@ public class PowerUpEnable : MonoBehaviour
             case PowerTypeList.SpeedUp:
                 // do thing
                 // eg: poweredPlayer.speed += speedBoost;
-                player.speed += speedBoost;
+                SpeedUp(playerController);
                 // continue until timer ends
                 break;
 
             case PowerTypeList.MoonJump:
                 // do other thing
                 // eg: poweredPlayer.speed += jumpBoost;
-                player.speed += jumpBoost;
+                MoonJump(playerController);
                 break;
 
             case PowerTypeList.PlaceTrap:
                 // do another thing
+                PlaceTrap(playerController);
                 break;
 
             case PowerTypeList.GrappleHook:
                 // do yet another thing
+                GrappleHook(playerController);
                 break;
 
             default:
@@ -63,5 +65,25 @@ public class PowerUpEnable : MonoBehaviour
         //
         //Destroy(particle_effect);
         Destroy(this.gameObject);
+    }
+
+    void SpeedUp(PlayerControls player)
+    {
+
+    }
+
+    void MoonJump(PlayerControls player)
+    {
+
+    }
+
+    void PlaceTrap(PlayerControls player)
+    {
+
+    }
+
+    void GrappleHook(PlayerControls player)
+    {
+
     }
 }
