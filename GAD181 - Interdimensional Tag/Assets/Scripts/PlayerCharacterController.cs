@@ -17,8 +17,8 @@ public class PlayerCharacterController : MonoBehaviour
             velocityY -= 9.81f * Time.deltaTime;
         }
         
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        h = Input.GetAxis("Horizontal1");
+        v = Input.GetAxis("Vertical1");
         var movementVector = transform.forward * v * speed;
         
         if(Input.GetKeyDown(KeyCode.Space))
