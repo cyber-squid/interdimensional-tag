@@ -22,8 +22,8 @@ public class PlayerCharacterControllerExperimental : MonoBehaviour
             velocityY2 -= 9.81f * Time.deltaTime;
         }
 
-        h1 = Input.GetAxis("Horizontal1");
-        v1 = Input.GetAxis("Vertical1");
+        h1 = Input.GetAxis("Horizontal");
+        v1 = Input.GetAxis("Vertical");
         var movementVector1 = transform.forward * v1 * speed;
 
         h2 = Input.GetAxis("Horizontal2");
